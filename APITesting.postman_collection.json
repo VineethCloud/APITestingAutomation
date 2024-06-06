@@ -1,48 +1,41 @@
 {
 	"info": {
-		"_postman_id": "817dda8e-a1b0-46b3-be38-4555b3b6cf96",
+		"_postman_id": "1fd323df-5abf-4f24-a929-a3e176273f38",
 		"name": "API Testing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "16825267",
-		"_collection_link": "https://interstellar-crater-618961.postman.co/workspace/CNATS-CG~a3acd8c5-ec7f-4a9b-a078-eac553f7091d/collection/16825267-817dda8e-a1b0-46b3-be38-4555b3b6cf96?action=share&source=collection_link&creator=16825267"
+		"_exporter_id": "31965316"
 	},
 	"item": [
 		{
-			"name": "GET Req",
+			"name": "GetRequest",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response time is less than 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(700);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Body matches string\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"free\");\r",
-							"});\r",
-							"pm.test(\"Check JSON Data\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.data.id).to.eql(12);\r",
-							"});\r",
-							"pm.test(\"Check last name \", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.data.last_name).to.eql(\"Howell\");\r",
-							"});\r",
-							"pm.test(\"Check url \", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.support.url).contains(\"support-heading\");\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Content-Type is present\", function () {\r",
-							"    pm.response.to.have.header(\"Content-Type\");\r",
-							"});"
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Rachel\");",
+							"});",
+							"pm.test(\"Check JSON Data\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data.id).to.eql(12);",
+							"});",
+							"pm.test(\"Check last name \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data.last_name).to.eql(\"Howell\");",
+							"});",
+							"pm.test(\"Check url \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.support.url).contains(\"support-heading\");",
+							"});",
+							"",
+							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -50,7 +43,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://reqres.in/api/users?id=12",
+					"raw": "https://reqres.in/api/users/12",
 					"protocol": "https",
 					"host": [
 						"reqres",
@@ -58,45 +51,21 @@
 					],
 					"path": [
 						"api",
-						"users"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "12"
-						}
+						"users",
+						"12"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "POST Req",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Response time is less than 200ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Successful POST request\", function () {\r",
-							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
-							"});\r",
-							"\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
+			"name": "Post Request",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"data\": {\r\n        \"email\": \"smitha@test.in\",\r\n        \"first_name\": \"Smitha\",\r\n        \"last_name\": \"Menon\"\r\n    }\r\n}\r\n",
+					"raw": "{\n    \"data\": {\n        \"email\": \"Vineeth@test.in\",\n        \"first_name\": \"Vineeth\",\n        \"last_name\": \"Xavier\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -119,13 +88,13 @@
 			"response": []
 		},
 		{
-			"name": "PUT",
+			"name": "Put Request",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"data\": {        \r\n    \"id\": 5,\r\n    \"email\": \"smitha@test.in\",\r\n    \"first_name\": \"Test\",\r\n    \"last_name\": \"Name\"\r\n}\r\n}\r\n",
+					"raw": "{\n    \"data\": {\n        \"id\": 5,\n        \"email\": \"smitha@test.in\",\n        \"first_name\": \"Test\",\n        \"last_name\": \"Name\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -149,13 +118,25 @@
 			"response": []
 		},
 		{
-			"name": "Delete",
+			"name": "Delete Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n{        \r\n    \"id\": 5\r\n}\r\n\r\n",
+					"raw": "{\n    \"id\": 5\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -178,22 +159,21 @@
 			"response": []
 		},
 		{
-			"name": "Lambda",
+			"name": "FullBodyMatch",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Body matches string\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"profession\");\r",
-							"});\r",
+							"var resp='{\"data\":{\"id\":2,\"email\":\"janet.weaver@reqres.in\",\"first_name\":\"Janet\",\"last_name\":\"Weaver\",\"avatar\":\"https://reqres.in/img/faces/2-image.jpg\"},\"support\":{\"url\":\"https://reqres.in/#support-heading\",\"text\":\"To keep ReqRes free, contributions towards server costs are appreciated!\"}}'",
+							" ",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(resp);",
+							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"packages": {}
 					}
 				}
 			],
@@ -201,28 +181,59 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://lw0qsqpnfl.execute-api.ap-southeast-2.amazonaws.com/cnats/cnatsapi_resource?first_name=Smitha&last_name=Menon",
+					"raw": "https://reqres.in/api/users/2",
 					"protocol": "https",
 					"host": [
-						"lw0qsqpnfl",
-						"execute-api",
-						"ap-southeast-2",
-						"amazonaws",
-						"com"
+						"reqres",
+						"in"
 					],
 					"path": [
-						"cnats",
-						"cnatsapi_resource"
-					],
-					"query": [
-						{
-							"key": "first_name",
-							"value": "Smitha"
-						},
-						{
-							"key": "last_name",
-							"value": "Menon"
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TestPostRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"checking 2\",\n    \"job\": \"leader\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
 					]
 				}
 			},
